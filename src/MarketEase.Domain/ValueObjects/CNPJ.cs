@@ -3,16 +3,16 @@ using Flunt.Validations;
 
 namespace MarketEase.Domain.ValueObjects;
 
-public class CPF : ValueObject
+public class CNPJ : ValueObject
 {
     public string Number { get; init; }
 
-    public CPF(string number)
+    public CNPJ(string number)
     {
         Number = number;
 
         AddNotifications(new Contract<Notification>()
             .Requires()
-            .AreEquals(Number.Length, 11, "CPF.Number", "CPF should have 11 characters"));
+            .AreEquals(Number, 14, "CNPJ.Number", "CNPJ should have 14 characters"));
     }
 }
