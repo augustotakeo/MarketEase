@@ -19,9 +19,9 @@ public class User : Notifiable<Notification>
 
         AddNotifications(new Contract<Notification>()
             .Requires()
-            .IsBetween(name?.Length ?? 0, 3, 60, "User.Name", "Name lenght must be greater than 3")
+            .IsBetween(name.Length, 3, 60, "User.Name", "Name lenght must be greater than 3")
             .IsEmail(email, "User.Email", "Email should be valid")
-            .IsGreaterOrEqualsThan(password?.Length ?? 0, 8, "User.Password", "Password length should be greater than 3"));
+            .IsGreaterOrEqualsThan(password.Length, 8, "User.Password", "Password length should be greater than 3"));
  
         AddNotifications(cpf);
     }
