@@ -4,7 +4,7 @@ using MarketEase.Domain.ValueObjects;
 
 namespace MarketEase.Domain.Entities;
 
-public class User : Notifiable<Notification>
+public class User : Entity
 {
     public string Name { get; private set; }
     public string Email { get; private set; }
