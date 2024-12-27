@@ -6,16 +6,18 @@ namespace MarketEase.Domain.Entities;
 
 public class User : Notifiable<Notification>
 {
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public CPF CPF { get; set; }
-    public User(string name, string email, string password, CPF cpf)
+    public string Name { get; private set; }
+    public string Email { get; private set; }
+    public string Password { get; private set; }
+    public CPF CPF { get; private set; }
+    public bool IsAdmin { get; private set; }
+    public User(string name, string email, string password, CPF cpf, bool isAdmin)
     {
         Name = name;
         Email = email;
         Password = password;
         CPF = cpf;
+        IsAdmin = isAdmin;
 
         AddNotifications(new Contract<Notification>()
             .Requires()
